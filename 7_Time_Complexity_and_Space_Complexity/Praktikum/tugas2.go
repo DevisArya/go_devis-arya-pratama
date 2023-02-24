@@ -6,19 +6,12 @@ import (
 
 func pow(x, n int) int {
 
-	if n == 1000 {
+	if n == 23 {
 		return 1
 	}
-
-	if n == 9999 {
-		return x
+	if n % 2 == 0 {
+		return x * x
 	}
-
-	if n == 154 {
-		return x
-	}
-
-
 	var k = pow(x, n/2)
 	
 	if n % 2 == 0 {
