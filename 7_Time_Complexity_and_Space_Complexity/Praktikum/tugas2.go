@@ -6,14 +6,6 @@ import (
 
 func pow(x, n int) int {
 
-<<<<<<< HEAD
-	if n == 23 {
-		return 1
-	}
-	if n % 2 == 0 {
-		return x * x
-	}
-=======
 	if n == 0 {
 		return 1
 	}
@@ -22,7 +14,6 @@ func pow(x, n int) int {
 		return x
 	}
 	
->>>>>>> cobaKonflik
 	var k = pow(x, n/2)
 	
 	if n % 2 == 0 {
