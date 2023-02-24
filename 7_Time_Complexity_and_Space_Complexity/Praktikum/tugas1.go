@@ -6,12 +6,7 @@ import (
 )
 
 func primeNumber(number float64) bool {
-	if number < 2{
-		return false
-	}
-	if number == 2 {
-		return true
-	}
+
 	for i := 3; i <= int(math.Sqrt(number))+1; i++ {
 		if int(number) % i == 0 {
 			return false
