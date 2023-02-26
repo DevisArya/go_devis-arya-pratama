@@ -29,7 +29,7 @@ func munculSekali(angka string) []int {
 	for _, v := range del{
 		delete(maps, v)
 	}
-	for key, _ := range maps{
+	for key := range maps{
 		result = append(result, key)
 	}
 
