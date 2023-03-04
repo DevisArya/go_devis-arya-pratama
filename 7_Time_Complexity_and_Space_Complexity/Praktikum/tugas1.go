@@ -14,7 +14,7 @@ func primeNumber(number float64) bool {
 		return true
 	}
 
-	for i := 3; i <= int(math.Sqrt(number))+1; i++ {
+	for i := 2; i <= int(math.Sqrt(number))+1; i++ {
 		if int(number) % i == 0 {
 			return false
 		}
@@ -25,7 +25,7 @@ func primeNumber(number float64) bool {
 func main() {
 	var hasil bool
 
-	hasil = primeNumber(1000000007) // true
+	hasil = primeNumber(4) // true
    	// hasil = primeNumber(13)         // true
    	// hasil = primeNumber(17)         // true
    	// hasil = primeNumber(20)         // false
