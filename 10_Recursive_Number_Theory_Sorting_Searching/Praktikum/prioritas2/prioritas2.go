@@ -3,27 +3,15 @@ package main
 import "fmt"
 
 func playingDomino(cards [][]int, deck []int)interface{}  {
-
-
-	sliceCard := []int{}
 	
-	for i := 0; i < len(cards) ; i++ {
-		sliceCard = append(sliceCard, cards[i][0])
-		sliceCard = append(sliceCard, cards[i][1])
-	}
+	for i, val := range cards{
 
-	for i, val := range sliceCard{
-		if val == deck[0] || val == deck[1] {
-			if i % 2 == 0 {
-				return []int{sliceCard[i], sliceCard[i+1]}
-			}
-			return []int{sliceCard[i-1], sliceCard[i]}
+		if val[0] == deck[0] || val[0] == deck[1] || val[1] == deck[0] || val[1] == deck[1]  {
+			return cards[i]
 		}
 		
 	}
-
 	return "tutup kartu"
-
 }
 
 func main()  {
