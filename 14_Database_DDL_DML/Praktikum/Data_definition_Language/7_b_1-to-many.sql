@@ -1,0 +1,4 @@
+CREATE TABLE alamat(
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+alamat varchar(255)
+);

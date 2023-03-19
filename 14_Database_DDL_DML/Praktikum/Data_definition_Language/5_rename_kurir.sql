@@ -1,0 +1,1 @@
+RENAME TABLE kurir TO shipping;
