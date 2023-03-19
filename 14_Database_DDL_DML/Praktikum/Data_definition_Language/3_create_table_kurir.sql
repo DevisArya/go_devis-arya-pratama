@@ -1,0 +1,6 @@
+CREATE TABLE kurir(
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(100) ,
+created_at DATETIME ,
+updated_at DATETIME 
+);
