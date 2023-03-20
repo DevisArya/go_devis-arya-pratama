@@ -1,4 +1,4 @@
-INSERT INTO operator(name, adress, phone_number) 
+INSERT INTO operator(name, address, phone_number) 
 VALUES 
 ('ela','Bandung','081234567892'),
 ('robi','Bandung','085484529594'),
@@ -191,9 +191,3 @@ VALUES
 (1,15,1,50000.00),
 (5,15,1,50000.00),
 (7,15,1,100000.00);
-
-
-
-
-
-

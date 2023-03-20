@@ -1,8 +1,6 @@
-CREATE DATABASE  IF NOT EXISTS `alta_online_shop` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `alta_online_shop`;
 -- MySQL dump 10.13  Distrib 8.0.32, for Win64 (x86_64)
 --
--- Host: localhost    Database: alta_online_shop
+-- Host: localhost    Database: test
 -- ------------------------------------------------------
 -- Server version	8.0.32
 
@@ -48,10 +46,10 @@ DROP TABLE IF EXISTS `operator`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `operator` (
-  `id` int  AUTO_INCREMENT,
-  `name` varchar(100) ,
-  `adress` varchar(255) DEFAULT NULL,
-  `phone_number` int DEFAULT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `phone_number` varchar(15) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -74,10 +72,11 @@ DROP TABLE IF EXISTS `payment_method`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `payment_method` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `payment_method_description_id` int ,
-  `name` varchar(100) ,
-  `payment_number` varchar(20) ,
-  PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `payment_method_description_id` int DEFAULT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `payment_number` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -121,14 +120,20 @@ DROP TABLE IF EXISTS `product`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `product` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `product_type_id` int ,
-  `operator_id` int ,
-  `product_description_id` int ,
-  `name` varchar(100) ,
-  `status` smallint ,
-  `created_at` datetime ,
-  `updated_att` datetime ,
-  PRIMARY KEY (`id`)
+  `product_type_id` int DEFAULT NULL,
+  `operator_id` int DEFAULT NULL,
+  `product_description_id` int DEFAULT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `status` smallint DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `product_type_id` (`product_type_id`),
+  KEY `operator_id` (`operator_id`),
+  KEY `product_description_id` (`product_description_id`),
+  CONSTRAINT `product_ibfk_1` FOREIGN KEY (`product_type_id`) REFERENCES `product_type` (`id`),
+  CONSTRAINT `product_ibfk_2` FOREIGN KEY (`operator_id`) REFERENCES `operator` (`id`),
+  CONSTRAINT `product_ibfk_3` FOREIGN KEY (`product_description_id`) REFERENCES `product_description` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -173,7 +178,7 @@ DROP TABLE IF EXISTS `product_type`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `product_type` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) ,
+  `name` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -196,14 +201,18 @@ DROP TABLE IF EXISTS `transaction`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `transaction` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `user_id` int ,
-  `payment_method_id` int ,
-  `qty` int ,
+  `user_id` int DEFAULT NULL,
+  `payment_method_id` int DEFAULT NULL,
+  `qty` int DEFAULT NULL,
   `total_price` decimal(21,2) DEFAULT NULL,
   `status` smallint DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  KEY `payment_method_id` (`payment_method_id`),
+  CONSTRAINT `transaction_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
+  CONSTRAINT `transaction_ibfk_2` FOREIGN KEY (`payment_method_id`) REFERENCES `payment_method` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -225,11 +234,15 @@ DROP TABLE IF EXISTS `transaction_detail`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `transaction_detail` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `product_id` int ,
-  `transaction_id` int ,
-  `qty` int ,
+  `product_id` int DEFAULT NULL,
+  `transaction_id` int DEFAULT NULL,
+  `qty` int DEFAULT NULL,
   `price` decimal(21,2) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `product_id` (`product_id`),
+  KEY `transaction_id` (`transaction_id`),
+  CONSTRAINT `transaction_detail_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`),
+  CONSTRAINT `transaction_detail_ibfk_2` FOREIGN KEY (`transaction_id`) REFERENCES `transaction` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -252,13 +265,15 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int NOT NULL AUTO_INCREMENT,
   `alamat_id` int DEFAULT NULL,
-  `name` varchar(100) ,
+  `name` varchar(100) DEFAULT NULL,
   `birth_date` date DEFAULT NULL,
   `gender` char(1) DEFAULT NULL,
   `status` smallint DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `alamat_id` (`alamat_id`),
+  CONSTRAINT `user_ibfk_1` FOREIGN KEY (`alamat_id`) REFERENCES `alamat` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -280,9 +295,13 @@ DROP TABLE IF EXISTS `user_payment_method_detail`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `user_payment_method_detail` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `user_id` int ,
-  `payment_method_id` int ,
-  PRIMARY KEY (`id`)
+  `user_id` int DEFAULT NULL,
+  `payment_method_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  KEY `payment_method_id` (`payment_method_id`),
+  CONSTRAINT `user_payment_method_detail_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
+  CONSTRAINT `user_payment_method_detail_ibfk_2` FOREIGN KEY (`payment_method_id`) REFERENCES `payment_method` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -304,4 +323,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-03-18 16:40:49
+-- Dump completed on 2023-03-20 20:11:40

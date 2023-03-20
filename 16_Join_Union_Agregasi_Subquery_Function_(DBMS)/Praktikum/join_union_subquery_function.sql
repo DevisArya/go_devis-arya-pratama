@@ -20,7 +20,7 @@ a.transaction_id = b.id;
 
 DELIMITER $$
 CREATE TRIGGER delete_transaction_detail 
-    AFTER DELETE 
+    BEFORE DELETE 
     ON transaction
     FOR EACH ROW 
 BEGIN
