@@ -95,16 +95,26 @@ func UpdateUserController(c echo.Context) error {
 	}
 
 	id, _ := strconv.Atoi(c.Param("id"))
-	updateUser.ID = uint(id)
 
-	if found := config.DB.Where("id = ?", id).First(&users); found.Error != nil {
+	// if found := config.DB.Where("id = ?", id).First(&users); found.Error != nil {
+	// 	return echo.NewHTTPError(http.StatusBadRequest, map[string]interface{}{
+	// 		"messages": "user not found",
+	// 	})
+	// }
+
+	// if err := config.DB.Model(&users).Updates(updateUser).Error; err != nil {
+	// 	return echo.NewHTTPError(http.StatusBadRequest, err.Error())
+	// }
+	result := config.DB.Model(&users).Where("id = ?", id).Updates(updateUser)
+
+	if err := result.Error; err != nil {
+		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
+	}
+
+	if result.RowsAffected < 1 {
 		return echo.NewHTTPError(http.StatusBadRequest, map[string]interface{}{
 			"messages": "user not found",
 		})
-	}
-
-	if err := config.DB.Model(&users).Updates(updateUser).Error; err != nil {
-		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
 	}
 
 	return c.JSON(http.StatusOK, map[string]interface{}{
