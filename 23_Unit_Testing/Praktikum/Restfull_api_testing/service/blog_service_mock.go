@@ -2,6 +2,7 @@ package service
 
 import (
 	"errors"
+	"log"
 	"praktikum/models"
 
 	"github.com/stretchr/testify/mock"
@@ -28,6 +29,7 @@ var dataBlog = []models.Blog{
 }
 
 func (um *BlogRepositoryMock) CreateBlogController(blog *models.Blog) error {
+	log.Println(blog)
 
 	if blog.UserId == 0 || blog.Title == "" || blog.Content == "" {
 		return errors.New("please complete all fields")
