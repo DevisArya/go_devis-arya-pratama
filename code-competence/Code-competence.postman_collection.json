@@ -1,0 +1,968 @@
+{
+	"info": {
+		"_postman_id": "78656f1b-bae2-4613-8348-4e42dbd8d457",
+		"name": "Code-competence",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20325566"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Email\": \"devis@gmail.com\",\r\n    \"Password\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/user/login/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								"login",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"Email\": \"devis@gmail.com\",\r\n    \"Password\": \"123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/user/login/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"login",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 23 May 2023 07:20:30 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "251"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Message\": \"success login\",\n    \"Status\": \"200\",\n    \"User\": {\n        \"Id\": 1,\n        \"Email\": \"devis@gmail.com\",\n        \"Name\": \"Devis\",\n        \"Token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODQ4MzAwMzAsIm5hbWUiOiJEZXZpcyIsInVzZXJJZCI6MX0.EMNJMf_3EGb0K-1l2UOpm7nB3gOabh5J3lW2OCZfF3w\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Email\": \"devis@gmail.com\",\r\n    \"Name\": \"Devis\",\r\n    \"Password\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/user/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Register",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"Email\": \"devis@gmail.com\",\r\n    \"Name\": \"Devis\",\r\n    \"Password\": \"123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/user/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 23 May 2023 07:19:59 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "109"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Message\": \"succes create new user\",\n    \"Status\": \"200\",\n    \"User\": {\n        \"Id\": 1,\n        \"Email\": \"devis@gmail.com\",\n        \"Name\": \"Devis\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Items",
+			"item": [
+				{
+					"name": "Get-Items",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/items/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"items",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get-Items",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/items/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"items",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 23 May 2023 07:36:37 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "211"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Items\": [\n        {\n            \"Id\": \"8ae4330ef6b34a35a0fd8cbfc9d49dc1\",\n            \"Name\": \"Usb type C\",\n            \"Description\": \"Example Description Usb type C\",\n            \"Stock\": 100,\n            \"Price\": 50000,\n            \"CategoryId\": 1\n        }\n    ],\n    \"Message\": \"success get all Items\",\n    \"Status\": \"200\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Item",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/items/8ae4330ef6b34a35a0fd8cbfc9d49dc1/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"items",
+								"8ae4330ef6b34a35a0fd8cbfc9d49dc1",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Item",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/items/8ae4330ef6b34a35a0fd8cbfc9d49dc1/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"items",
+										"8ae4330ef6b34a35a0fd8cbfc9d49dc1",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 23 May 2023 07:36:14 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "203"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Item\": {\n        \"Id\": \"8ae4330ef6b34a35a0fd8cbfc9d49dc1\",\n        \"Name\": \"Usb type C\",\n        \"Description\": \"Example Description Usb type C\",\n        \"Stock\": 100,\n        \"Price\": 50000,\n        \"CategoryId\": 1\n    },\n    \"Message\": \"success get Item\",\n    \"Status\": \"200\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Item",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Name\": \"Usb type C 1\",\r\n    \"Description\": \"Example Description Usb type C\",\r\n    \"Stock\": 100,\r\n    \"Price\": 50000,\r\n    \"CategoryId\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/items/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"items",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Item",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"Name\": \"Usb type C\",\r\n    \"Description\": \"Example Description Usb type C\",\r\n    \"Stock\": 100,\r\n    \"Price\": 50000,\r\n    \"CategoryId\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/items/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"items",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 23 May 2023 07:32:27 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "209"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Item\": {\n        \"Id\": \"8ae4330ef6b34a35a0fd8cbfc9d49dc1\",\n        \"Name\": \"Usb type C\",\n        \"Description\": \"Example Description Usb type C\",\n        \"Stock\": 100,\n        \"Price\": 50000,\n        \"CategoryId\": 1\n    },\n    \"Message\": \"succes create new Item\",\n    \"Status\": \"200\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Item",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Name\": \"Usb type C update\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/items/8ae4330ef6b34a35a0fd8cbfc9d49dc1/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"items",
+								"8ae4330ef6b34a35a0fd8cbfc9d49dc1",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Item",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"Name\": \"Usb type C update\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/items/8ae4330ef6b34a35a0fd8cbfc9d49dc1/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"items",
+										"8ae4330ef6b34a35a0fd8cbfc9d49dc1",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 23 May 2023 07:44:50 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "49"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Message\": \"success update Item\",\n    \"Status\": \"200\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Item",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/items/99b66a0657104b51b840e5236ad6a4db/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"items",
+								"99b66a0657104b51b840e5236ad6a4db",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Item",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/items/99b66a0657104b51b840e5236ad6a4db/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"items",
+										"99b66a0657104b51b840e5236ad6a4db",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 23 May 2023 07:55:10 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "49"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Message\": \"success delete Item\",\n    \"Status\": \"200\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Items By Id Category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/items/category/1/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"items",
+								"category",
+								"1",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Items By Id Category",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/items/category/1/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"items",
+										"category",
+										"1",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 23 May 2023 08:03:48 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "364"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Item\": [\n        {\n            \"Id\": \"6fe75fa06503484481282669d44f4f1c\",\n            \"Name\": \"Usb type C 1\",\n            \"Description\": \"Example Description Usb type C\",\n            \"Stock\": 100,\n            \"Price\": 50000,\n            \"CategoryId\": 1\n        },\n        {\n            \"Id\": \"8ae4330ef6b34a35a0fd8cbfc9d49dc1\",\n            \"Name\": \"Usb type C update\",\n            \"Description\": \"Example Description Usb type C\",\n            \"Stock\": 100,\n            \"Price\": 50000,\n            \"CategoryId\": 1\n        }\n    ],\n    \"Message\": \"success get Item\",\n    \"Status\": \"200\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Item By Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/items?keyword=Usb type C Update/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"items"
+							],
+							"query": [
+								{
+									"key": "keyword",
+									"value": "Usb type C Update/"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Item By Name",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/items?keyword=Usb type C Update/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"items"
+									],
+									"query": [
+										{
+											"key": "keyword",
+											"value": "Usb type C Update/"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 23 May 2023 08:42:11 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "210"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Item\": {\n        \"Id\": \"8ae4330ef6b34a35a0fd8cbfc9d49dc1\",\n        \"Name\": \"Usb type C update\",\n        \"Description\": \"Example Description Usb type C\",\n        \"Stock\": 100,\n        \"Price\": 50000,\n        \"CategoryId\": 1\n    },\n    \"Message\": \"success get Item\",\n    \"Status\": \"200\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Get Categorys",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/category/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"category",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Categorys",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/category/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"category",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 23 May 2023 13:46:23 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "464"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Categorys\": [\n        {\n            \"Id\": 1,\n            \"Name\": \"Aksesoris Update\",\n            \"Items\": [\n                {\n                    \"Id\": \"6fe75fa06503484481282669d44f4f1c\",\n                    \"Name\": \"Usb type C 1\",\n                    \"Description\": \"Example Description Usb type C\",\n                    \"Stock\": 100,\n                    \"Price\": 50000,\n                    \"CategoryId\": 1\n                },\n                {\n                    \"Id\": \"8ae4330ef6b34a35a0fd8cbfc9d49dc1\",\n                    \"Name\": \"Usb type C update\",\n                    \"Description\": \"Example Description Usb type C\",\n                    \"Stock\": 100,\n                    \"Price\": 50000,\n                    \"CategoryId\": 1\n                }\n            ]\n        },\n        {\n            \"Id\": 3,\n            \"Name\": \"Aksesoris 2\",\n            \"Items\": []\n        }\n    ],\n    \"Message\": \"success get all categorys\",\n    \"Status\": \"200\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/category/1/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"category",
+								"1",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Category",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/category/1/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"category",
+										"1",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 23 May 2023 13:46:48 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "415"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Category\": {\n        \"Id\": 1,\n        \"Name\": \"Aksesoris Update\",\n        \"Items\": [\n            {\n                \"Id\": \"6fe75fa06503484481282669d44f4f1c\",\n                \"Name\": \"Usb type C 1\",\n                \"Description\": \"Example Description Usb type C\",\n                \"Stock\": 100,\n                \"Price\": 50000,\n                \"CategoryId\": 1\n            },\n            {\n                \"Id\": \"8ae4330ef6b34a35a0fd8cbfc9d49dc1\",\n                \"Name\": \"Usb type C update\",\n                \"Description\": \"Example Description Usb type C\",\n                \"Stock\": 100,\n                \"Price\": 50000,\n                \"CategoryId\": 1\n            }\n        ]\n    },\n    \"Message\": \"success get category\",\n    \"Status\": \"200\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Name\": \"Aksesoris 2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/category/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"category",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Category",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"Name\": \"Aksesoris\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/category/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"category",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 23 May 2023 09:43:14 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "95"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Category\": {\n        \"Id\": 1,\n        \"Name\": \"Aksesoris\"\n    },\n    \"Message\": \"succes create new category\",\n    \"Status\": \"200\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Category",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Name\": \"Aksesoris Update\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/category/1/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"category",
+								"1",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Category",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"Name\": \"Aksesoris Update\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/category/1/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"category",
+										"1",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 23 May 2023 09:46:11 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "53"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Message\": \"success update category\",\n    \"Status\": \"200\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Category",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/category/2/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"category",
+								"2",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Category",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/category/2/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"category",
+										"2",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 23 May 2023 13:43:36 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "53"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Message\": \"success delete category\",\n    \"Status\": \"200\"\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODQ4NTI5ODgsIm5hbWUiOiJEZXZpcyIsInVzZXJJZCI6MX0.Zdk6pi5qXzDpxYs6fV5c82k8OTZVb3f9LtB5i23PPF0",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "localhost:8080",
+			"type": "string"
+		}
+	]
+}
